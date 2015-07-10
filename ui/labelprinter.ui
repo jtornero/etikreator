@@ -36,7 +36,7 @@
     <item row="0" column="0">
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="lab_tab">
        <attribute name="title">
@@ -126,21 +126,6 @@
           <property name="editable">
            <bool>true</bool>
           </property>
-          <item>
-           <property name="text">
-            <string>Lonja de Cádiz</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>Lonja de Sanlúcar</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>Lonja de Barbate</string>
-           </property>
-          </item>
          </widget>
         </item>
         <item row="3" column="0">
@@ -282,16 +267,6 @@
           <property name="editable">
            <bool>true</bool>
           </property>
-          <item>
-           <property name="text">
-            <string>ECOCADIZ-201507</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>ECOCADIZ-R-2015</string>
-           </property>
-          </item>
          </widget>
         </item>
         <item row="4" column="1">
