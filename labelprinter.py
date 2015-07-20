@@ -1,30 +1,8 @@
 # -*- coding: utf-8 -*-
 
-#!/usr/bin/env python
-
-# labelprinter.py
-#
-
-# Copyright 2015 Jorge Tornero Nunez http://imasdemase.com
-#
-# This file is part of Etikreator, V1.0
-#
-# Etikreator is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
-#
-# Etikreator is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with Etikreator. If not, see <http://www.gnu.org/licenses/>.
-
 # Form implementation generated from reading ui file 'labelprinter.ui'
 #
-# Created: Mon Jul  6 16:52:03 2015
+# Created: Fri Jul 17 14:17:24 2015
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -85,6 +63,9 @@ class Ui_LabelPrinter(object):
         self.lab_origin_combo = QtGui.QComboBox(self.lab_tab)
         self.lab_origin_combo.setEditable(True)
         self.lab_origin_combo.setObjectName(_fromUtf8("lab_origin_combo"))
+        self.lab_origin_combo.addItem(_fromUtf8(""))
+        self.lab_origin_combo.addItem(_fromUtf8(""))
+        self.lab_origin_combo.addItem(_fromUtf8(""))
         self.gridLayout_2.addWidget(self.lab_origin_combo, 2, 1, 1, 1)
         self.label_6 = QtGui.QLabel(self.lab_tab)
         self.label_6.setObjectName(_fromUtf8("label_6"))
@@ -143,6 +124,8 @@ class Ui_LabelPrinter(object):
         self.srv_survey_combo = QtGui.QComboBox(self.survey_tab)
         self.srv_survey_combo.setEditable(True)
         self.srv_survey_combo.setObjectName(_fromUtf8("srv_survey_combo"))
+        self.srv_survey_combo.addItem(_fromUtf8(""))
+        self.srv_survey_combo.addItem(_fromUtf8(""))
         self.gridLayout_3.addWidget(self.srv_survey_combo, 0, 1, 1, 1)
         self.srv_end_spinbox = QtGui.QSpinBox(self.survey_tab)
         self.srv_end_spinbox.setAlignment(QtCore.Qt.AlignCenter)
@@ -168,6 +151,55 @@ class Ui_LabelPrinter(object):
         self.srv_start_spinbox.setObjectName(_fromUtf8("srv_start_spinbox"))
         self.gridLayout_3.addWidget(self.srv_start_spinbox, 3, 1, 1, 1)
         self.tabWidget.addTab(self.survey_tab, _fromUtf8(""))
+        self.vial_tab = QtGui.QWidget()
+        self.vial_tab.setObjectName(_fromUtf8("vial_tab"))
+        self.gridLayout_5 = QtGui.QGridLayout(self.vial_tab)
+        self.gridLayout_5.setObjectName(_fromUtf8("gridLayout_5"))
+        self.label_16 = QtGui.QLabel(self.vial_tab)
+        self.label_16.setObjectName(_fromUtf8("label_16"))
+        self.gridLayout_5.addWidget(self.label_16, 0, 0, 1, 1)
+        self.vial_survey_combo = QtGui.QComboBox(self.vial_tab)
+        self.vial_survey_combo.setEditable(True)
+        self.vial_survey_combo.setObjectName(_fromUtf8("vial_survey_combo"))
+        self.vial_survey_combo.addItem(_fromUtf8(""))
+        self.vial_survey_combo.addItem(_fromUtf8(""))
+        self.gridLayout_5.addWidget(self.vial_survey_combo, 0, 1, 1, 1)
+        self.label_13 = QtGui.QLabel(self.vial_tab)
+        self.label_13.setObjectName(_fromUtf8("label_13"))
+        self.gridLayout_5.addWidget(self.label_13, 1, 0, 1, 1)
+        self.vial_text_line_1 = QtGui.QLineEdit(self.vial_tab)
+        self.vial_text_line_1.setObjectName(_fromUtf8("vial_text_line_1"))
+        self.gridLayout_5.addWidget(self.vial_text_line_1, 1, 1, 1, 1)
+        self.label_14 = QtGui.QLabel(self.vial_tab)
+        self.label_14.setObjectName(_fromUtf8("label_14"))
+        self.gridLayout_5.addWidget(self.label_14, 2, 0, 1, 1)
+        self.vial_text_line_2 = QtGui.QLineEdit(self.vial_tab)
+        self.vial_text_line_2.setObjectName(_fromUtf8("vial_text_line_2"))
+        self.gridLayout_5.addWidget(self.vial_text_line_2, 2, 1, 1, 1)
+        self.label_17 = QtGui.QLabel(self.vial_tab)
+        self.label_17.setObjectName(_fromUtf8("label_17"))
+        self.gridLayout_5.addWidget(self.label_17, 3, 0, 1, 1)
+        self.vial_start_spinbox = QtGui.QSpinBox(self.vial_tab)
+        self.vial_start_spinbox.setAlignment(QtCore.Qt.AlignCenter)
+        self.vial_start_spinbox.setMinimum(1)
+        self.vial_start_spinbox.setMaximum(9999)
+        self.vial_start_spinbox.setProperty("value", 1)
+        self.vial_start_spinbox.setObjectName(_fromUtf8("vial_start_spinbox"))
+        self.gridLayout_5.addWidget(self.vial_start_spinbox, 3, 1, 1, 1)
+        self.label_15 = QtGui.QLabel(self.vial_tab)
+        self.label_15.setObjectName(_fromUtf8("label_15"))
+        self.gridLayout_5.addWidget(self.label_15, 4, 0, 1, 1)
+        self.vial_end_spinbox = QtGui.QSpinBox(self.vial_tab)
+        self.vial_end_spinbox.setAlignment(QtCore.Qt.AlignCenter)
+        self.vial_end_spinbox.setMinimum(1)
+        self.vial_end_spinbox.setMaximum(9999)
+        self.vial_end_spinbox.setProperty("value", 50)
+        self.vial_end_spinbox.setObjectName(_fromUtf8("vial_end_spinbox"))
+        self.gridLayout_5.addWidget(self.vial_end_spinbox, 4, 1, 1, 1)
+        self.print_vial_labels_btn = QtGui.QPushButton(self.vial_tab)
+        self.print_vial_labels_btn.setObjectName(_fromUtf8("print_vial_labels_btn"))
+        self.gridLayout_5.addWidget(self.print_vial_labels_btn, 5, 0, 1, 1)
+        self.tabWidget.addTab(self.vial_tab, _fromUtf8(""))
         self.printer_tab = QtGui.QWidget()
         self.printer_tab.setObjectName(_fromUtf8("printer_tab"))
         self.layoutWidget = QtGui.QWidget(self.printer_tab)
@@ -197,7 +229,7 @@ class Ui_LabelPrinter(object):
         LabelPrinter.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(LabelPrinter)
-        self.tabWidget.setCurrentIndex(1)
+        self.tabWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(LabelPrinter)
 
     def retranslateUi(self, LabelPrinter):
@@ -212,6 +244,9 @@ class Ui_LabelPrinter(object):
         self.label_4.setText(QtGui.QApplication.translate("LabelPrinter", "Fecha", None, QtGui.QApplication.UnicodeUTF8))
         self.lab_date.setDisplayFormat(QtGui.QApplication.translate("LabelPrinter", "dd/MM/yyyy", None, QtGui.QApplication.UnicodeUTF8))
         self.label_5.setText(QtGui.QApplication.translate("LabelPrinter", "Origen", None, QtGui.QApplication.UnicodeUTF8))
+        self.lab_origin_combo.setItemText(0, QtGui.QApplication.translate("LabelPrinter", "Lonja de Cádiz", None, QtGui.QApplication.UnicodeUTF8))
+        self.lab_origin_combo.setItemText(1, QtGui.QApplication.translate("LabelPrinter", "Lonja de Sanlúcar", None, QtGui.QApplication.UnicodeUTF8))
+        self.lab_origin_combo.setItemText(2, QtGui.QApplication.translate("LabelPrinter", "Lonja de Barbate", None, QtGui.QApplication.UnicodeUTF8))
         self.label_6.setText(QtGui.QApplication.translate("LabelPrinter", "Núm. Inicial", None, QtGui.QApplication.UnicodeUTF8))
         self.label_7.setText(QtGui.QApplication.translate("LabelPrinter", "Núm. Final", None, QtGui.QApplication.UnicodeUTF8))
         self.print_lab_labels_btn.setText(QtGui.QApplication.translate("LabelPrinter", "Imprimir", None, QtGui.QApplication.UnicodeUTF8))
@@ -225,10 +260,21 @@ class Ui_LabelPrinter(object):
         self.srv_species_combo.setItemText(5, QtGui.QApplication.translate("LabelPrinter", "S. pilchardus (G)", None, QtGui.QApplication.UnicodeUTF8))
         self.print_srv_labels_btn.setText(QtGui.QApplication.translate("LabelPrinter", "Imprimir", None, QtGui.QApplication.UnicodeUTF8))
         self.label_12.setText(QtGui.QApplication.translate("LabelPrinter", "Campaña", None, QtGui.QApplication.UnicodeUTF8))
+        self.srv_survey_combo.setItemText(0, QtGui.QApplication.translate("LabelPrinter", "ECOCADIZ-201507", None, QtGui.QApplication.UnicodeUTF8))
+        self.srv_survey_combo.setItemText(1, QtGui.QApplication.translate("LabelPrinter", "ECOCADIZ-R-2015", None, QtGui.QApplication.UnicodeUTF8))
         self.label_10.setText(QtGui.QApplication.translate("LabelPrinter", "Pesca", None, QtGui.QApplication.UnicodeUTF8))
         self.label_9.setText(QtGui.QApplication.translate("LabelPrinter", "Especie", None, QtGui.QApplication.UnicodeUTF8))
         self.label_11.setText(QtGui.QApplication.translate("LabelPrinter", "Núm. Final", None, QtGui.QApplication.UnicodeUTF8))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.survey_tab), QtGui.QApplication.translate("LabelPrinter", "Campaña", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_16.setText(QtGui.QApplication.translate("LabelPrinter", "Campaña", None, QtGui.QApplication.UnicodeUTF8))
+        self.vial_survey_combo.setItemText(0, QtGui.QApplication.translate("LabelPrinter", "ECOCADIZ-201507", None, QtGui.QApplication.UnicodeUTF8))
+        self.vial_survey_combo.setItemText(1, QtGui.QApplication.translate("LabelPrinter", "ECOCADIZ-R-2015", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_13.setText(QtGui.QApplication.translate("LabelPrinter", "Codigo 1", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_14.setText(QtGui.QApplication.translate("LabelPrinter", "Codigo 2", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_17.setText(QtGui.QApplication.translate("LabelPrinter", "Núm. Inicial", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_15.setText(QtGui.QApplication.translate("LabelPrinter", "Núm. Final", None, QtGui.QApplication.UnicodeUTF8))
+        self.print_vial_labels_btn.setText(QtGui.QApplication.translate("LabelPrinter", "Imprimir", None, QtGui.QApplication.UnicodeUTF8))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.vial_tab), QtGui.QApplication.translate("LabelPrinter", "Viales", None, QtGui.QApplication.UnicodeUTF8))
         self.label.setText(QtGui.QApplication.translate("LabelPrinter", "<center>Printer IP</center>", None, QtGui.QApplication.UnicodeUTF8))
         self.label_2.setText(QtGui.QApplication.translate("LabelPrinter", "<center>Port</center>", None, QtGui.QApplication.UnicodeUTF8))
         self.printer_ip.setText(QtGui.QApplication.translate("LabelPrinter", "192.168.2.6", None, QtGui.QApplication.UnicodeUTF8))

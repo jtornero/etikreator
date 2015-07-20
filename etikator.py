@@ -40,7 +40,21 @@ class Etikator(QtGui.QMainWindow):
         
         self.dlg.print_lab_labels_btn.clicked.connect(self.process_lab_labels)
         self.dlg.print_srv_labels_btn.clicked.connect(self.process_srv_labels)
+        self.dlg.print_vial_labels_btn.clicked.connect(self.process_vial_labels)
+
         
+    def process_vial_labels(self):
+        # Gather values for label fields
+        survey_text = self.dlg.vial_survey_combo.currentText()
+        line_1 = self.dlg.vial_text_line_1.text()
+        line_2 = self.dlg.vial_text_line_2.text()
+        start_number =self.dlg.vial_start_spinbox.value()
+        end_number = self.dlg.vial_end_spinbox.value()
+
+        labels=self.create_labels(survey_text,line_1,line_2,start_number,end_number,slides=False)
+        
+        self.send_labels_to_printer(labels)
+    
     def process_srv_labels(self):
         # Gather values for label fields
         survey_text = self.dlg.srv_survey_combo.currentText()
@@ -52,7 +66,6 @@ class Etikator(QtGui.QMainWindow):
         labels=self.create_labels(survey_text,srv_species_text,haul_number,srv_start_number,srv_end_number)
         
         self.send_labels_to_printer(labels)
-        
     
     def process_lab_labels(self):
         # Gather values for label fields
@@ -87,52 +100,63 @@ class Etikator(QtGui.QMainWindow):
             sock.send(label.encode('utf-8'))
         sock.close()
     
-    def create_labels(self,line1,line2,line3,start,end):
-        
-        labels = []
-        
-        tens=int(start/10)
-        plate_start = start
-        plate_end = (tens+1)*10
-        
-        while True:
-                
-                
-                
-                if plate_end >= end:
-                    plate_end = end
-                    print '----',tens, plate_start,plate_end
-                    label = """
-                                ^XA
-                                ^CI28
-                                ^PW305
-                                ^FO0,30^FB250,3,0,C,0^AK,21^FD%s\&%s\&%s^FS
-                                ^FO60,30^FB400,3,0,C,0^AI,24^FD%i\&a\&%i^FS
-                                ^XZ"""%(line1,line2,line3,plate_start,plate_end)
-                    labels.append(label)
-                    break
-                
-                
-                
-                else:
-                    print tens, plate_start,plate_end
-                    label = """
-                                ^XA
-                                ^CI28
-                                ^PW305
-                                ^FO0,30^FB250,3,0,C,0^AK,20^FD%s\&%s\&%s^FS
-                                ^FO60,30^FB400,3,0,C,0^AI,24^FD%i\&a\&%i^FS
-                                ^XZ"""%(line1,line2,line3,plate_start,plate_end)
-                    labels.append(label)
-                    tens+=1
-                    plate_end = (tens+1)*10
-                    plate_start = (tens*10)+1
-        
+    def create_labels(self,line1,line2,line3,start,end,slides=True):
+        if slides:
+            labels = []
+            
+            tens=int(start/10)
+            plate_start = start
+            plate_end = (tens+1)*10
+            
+            while True:
+                    
+                    
+                    
+                    if plate_end >= end:
+                        plate_end = end
+                        print '----',tens, plate_start,plate_end
+                        label = """
+                                    ^XA
+                                    ^CI28
+                                    ^PW305
+                                    ^FO0,30^FB250,3,0,C,0^AK,21^FD%s\&%s\&%s^FS
+                                    ^FO60,30^FB400,3,0,C,0^AI,24^FD%i\&a\&%i^FS
+                                    ^XZ"""%(line1,line2,line3,plate_start,plate_end)
+                        labels.append(label)
+                        break
+                    
+                    
+                    
+                    else:
+                        print tens, plate_start,plate_end
+                        label = """
+                                    ^XA
+                                    ^CI28
+                                    ^PW305
+                                    ^FO0,30^FB250,3,0,C,0^AK,20^FD%s\&%s\&%s^FS
+                                    ^FO60,30^FB400,3,0,C,0^AI,24^FD%i\&a\&%i^FS
+                                    ^XZ"""%(line1,line2,line3,plate_start,plate_end)
+                        labels.append(label)
+                        tens+=1
+                        plate_end = (tens+1)*10
+                        plate_start = (tens*10)+1
+            
+                    
                 
             
+            return labels
         
-        return labels
-
+        elif not slides:
+            labels=[]
+            for label_number in range(start,end+1):
+                label = """         ^XA
+                                    ^CI28
+                                    ^PW305
+                                    ^FO0,30^FB250,3,0,C,0^AK,20^FD%s\&%s\&%s^FS
+                                    ^FO70,27^FB400,1,0,C,0^AI,50^FD%s^FS
+                                    ^XZ"""%(line1,line2,line3,label_number)
+                labels.append(label)
+            return labels
     
 app=QtGui.QApplication(sys.argv)
 etik = Etikator()
