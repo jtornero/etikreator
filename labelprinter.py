@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'labelprinter.ui'
 #
-# Created: Fri Jul 17 14:17:24 2015
+# Created: Tue Jul 21 08:27:21 2015
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -202,34 +202,36 @@ class Ui_LabelPrinter(object):
         self.tabWidget.addTab(self.vial_tab, _fromUtf8(""))
         self.printer_tab = QtGui.QWidget()
         self.printer_tab.setObjectName(_fromUtf8("printer_tab"))
-        self.layoutWidget = QtGui.QWidget(self.printer_tab)
-        self.layoutWidget.setGeometry(QtCore.QRect(20, 10, 186, 42))
-        self.layoutWidget.setObjectName(_fromUtf8("layoutWidget"))
-        self.gridLayout = QtGui.QGridLayout(self.layoutWidget)
-        self.gridLayout.setMargin(0)
+        self.formLayout = QtGui.QFormLayout(self.printer_tab)
+        self.formLayout.setObjectName(_fromUtf8("formLayout"))
+        self.gridLayout = QtGui.QGridLayout()
         self.gridLayout.setObjectName(_fromUtf8("gridLayout"))
-        self.label = QtGui.QLabel(self.layoutWidget)
+        self.label = QtGui.QLabel(self.printer_tab)
         self.label.setObjectName(_fromUtf8("label"))
         self.gridLayout.addWidget(self.label, 0, 0, 1, 1)
-        self.label_2 = QtGui.QLabel(self.layoutWidget)
+        self.label_2 = QtGui.QLabel(self.printer_tab)
         self.label_2.setObjectName(_fromUtf8("label_2"))
         self.gridLayout.addWidget(self.label_2, 0, 1, 1, 1)
-        self.printer_ip = QtGui.QLineEdit(self.layoutWidget)
+        self.printer_ip = QtGui.QLineEdit(self.printer_tab)
         self.printer_ip.setAlignment(QtCore.Qt.AlignCenter)
         self.printer_ip.setObjectName(_fromUtf8("printer_ip"))
         self.gridLayout.addWidget(self.printer_ip, 1, 0, 1, 1)
-        self.printer_port = QtGui.QSpinBox(self.layoutWidget)
+        self.printer_port = QtGui.QSpinBox(self.printer_tab)
         self.printer_port.setAlignment(QtCore.Qt.AlignCenter)
         self.printer_port.setMaximum(65535)
         self.printer_port.setProperty("value", 9100)
         self.printer_port.setObjectName(_fromUtf8("printer_port"))
         self.gridLayout.addWidget(self.printer_port, 1, 1, 1, 1)
+        self.calibrate_media_btn = QtGui.QPushButton(self.printer_tab)
+        self.calibrate_media_btn.setObjectName(_fromUtf8("calibrate_media_btn"))
+        self.gridLayout.addWidget(self.calibrate_media_btn, 2, 0, 1, 2)
+        self.formLayout.setLayout(0, QtGui.QFormLayout.LabelRole, self.gridLayout)
         self.tabWidget.addTab(self.printer_tab, _fromUtf8(""))
         self.gridLayout_4.addWidget(self.tabWidget, 0, 0, 1, 1)
         LabelPrinter.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(LabelPrinter)
-        self.tabWidget.setCurrentIndex(0)
+        self.tabWidget.setCurrentIndex(3)
         QtCore.QMetaObject.connectSlotsByName(LabelPrinter)
 
     def retranslateUi(self, LabelPrinter):
@@ -278,5 +280,7 @@ class Ui_LabelPrinter(object):
         self.label.setText(QtGui.QApplication.translate("LabelPrinter", "<center>Printer IP</center>", None, QtGui.QApplication.UnicodeUTF8))
         self.label_2.setText(QtGui.QApplication.translate("LabelPrinter", "<center>Port</center>", None, QtGui.QApplication.UnicodeUTF8))
         self.printer_ip.setText(QtGui.QApplication.translate("LabelPrinter", "192.168.2.6", None, QtGui.QApplication.UnicodeUTF8))
+        self.calibrate_media_btn.setText(QtGui.QApplication.translate("LabelPrinter", "Calibrar\n"
+"etiqueta", None, QtGui.QApplication.UnicodeUTF8))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.printer_tab), QtGui.QApplication.translate("LabelPrinter", "Impresora", None, QtGui.QApplication.UnicodeUTF8))
 

@@ -41,7 +41,7 @@ class Etikator(QtGui.QMainWindow):
         self.dlg.print_lab_labels_btn.clicked.connect(self.process_lab_labels)
         self.dlg.print_srv_labels_btn.clicked.connect(self.process_srv_labels)
         self.dlg.print_vial_labels_btn.clicked.connect(self.process_vial_labels)
-
+        self.dlg.calibrate_media_btn.clicked.connect(self.calibrate_media)
         
     def process_vial_labels(self):
         # Gather values for label fields
@@ -79,6 +79,16 @@ class Etikator(QtGui.QMainWindow):
         labels=self.create_labels(lab_species_text,lab_origin_text,lab_date_text,lab_start_number,lab_end_number)
         
         self.send_labels_to_printer(labels)
+    
+    def calibrate_media (self):
+        printer_ip = self.dlg.printer_ip.text()
+        printer_port = self.dlg.printer_port.value()
+        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        sock.connect((printer_ip, printer_port))
+        
+        calibrate_media_command = "~JC"
+        sock.send(calibrate_media_command.encode('utf-8'))
+        sock.close()
     
     def send_labels_to_printer(self,labels):
         
